@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间复杂分析</title>
+</head>
+
+<body>
+    <script>
+        // 只关注循环执行次数最多的一行
+        const cal = (n) => {
+            let num = 0;
+            let i = 1;
+            for (; i <= n; ++i) {
+                num += i;
+            }
+            return num;
+        }
+        const n = 10;
+        const number = cal(n);
+        console.log('只关注循环执行次数最多的一行: 计算总和：' + n);
+        // 公式   O（  n ）
+        console.log('只关注循环执行次数最多的一行: 时间复杂分析：' + n);
+
+
+        // 加法法则：总复杂度等于量级最大的那段复杂度
+        const calAdd = (n) => {
+            let sum_1 = 0;
+            let p = 1;
+            for (; p < 100; ++p) {
+                sum_1 = sum_1 + p;
+            }
+
+            let sum_2 = 0;
+            let q = 1;
+            for (; q < n; ++q) {
+                sum_2 = sum_2 + q;
+            }
+
+            let sum_3 = 0;
+            let i = 1;
+            let j = 1;
+            for (; i <= n; ++i) {
+                j = 1;
+                for (; j <= n; ++j) {
+                    sum_3 = sum_3 + i * j;
+                }
+            }
+
+            return sum_1 + sum_2 + sum_3;
+        }
+        const addNumber = calAdd(n);
+        console.log('1-加法法则：总复杂度等于量级最大的那段复杂度: 计算总和：不计数常量') // 计算总和：不计数常量
+        console.log('2-加法法则：总复杂度等于量级最大的那段复杂度: 计算总和：' + n) // O（ n ）
+        console.log('3-加法法则：总复杂度等于量级最大的那段复杂度: 计算总和：' + Math.pow(n, 2)) // O（ n的 2次方 ）
+
+        // 乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘机
+        const calMultiply = (n) => {
+            let ret = 0;
+            let i = 1;
+            for (; i < n; ++i) {
+                ret = ret + f(i);
+            }
+        }
+
+        const f = (n) => {
+            let sum = 0;
+            let i = 1;
+            for (; i < n; ++i) {
+                sum = sum + i;
+            }
+            return sum;
+        }
+        const multiply = calMultiply(n);
+        // 公式  T1 = O(n) / T2 = O(n 2次方) / T1 * T2 = o(N 3次方)
+        console.log('乘法法则：嵌套代码的复杂度等于嵌套内外代码复杂度的乘机: 计算总和：' + Math.pow(n, 3)) // O（ n的 2次方 ）
+
+    </script>
+</body>
+
+</html>

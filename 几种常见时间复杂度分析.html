@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // O(1)
+        // 总结一下，只要代码的执行时间不随 n 的增大而增长，这样代码的时间复杂度我们都记作 O(1),，只要算法中不存在循环语句、递归语句，即使有成千上万行的代码，其时间复杂度也是Ο(1)
+        let num1 = 1;
+        let num2 = 2;
+        let num3 = 3;
+        // O ( logn ) / O ( nlogn )
+        let num4 = 1,
+            i = 1,
+            n = 10;
+        while (i <= n) {
+            i = i * 3;
+        }
+        console.log('O(log 3底数 n');
+        for (; i <= n; ++i) {
+            while (i <= n) {
+                i = i * 3;
+            }
+        }
+        console.log('O(n log 3底数 n)');
+        // O(m+n) / O(m*n)
+        const cal = (m,n) => {
+            let sum_1 = 0;
+            let i = 1;
+            for (; i < m; ++i) {
+                sum_1 = sum_1 + i;
+            }
+
+            let sum_2 = 0;
+            let j = 1;
+            for (; j < n; ++j) {
+                sum_2 = sum_2 + j;
+            }
+
+            return sum_1 + sum_2;
+        }
+        const m = 1;
+        const n1 = 1;
+
+        // 公式  
+        // 加法 T1(m) + T2(n) = O(f(m) + g(n))
+        console.log('加法：' + (parseInt(m) + parseInt(n1)) )
+        // 乘法 T1(m) * T2(n) = O(f(m) * g(n))
+        console.log('乘法' + parseInt(m) * parseInt(n1) )
+    </script>
+</body>
+
+</html>

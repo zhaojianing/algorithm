@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复杂度分析</title>
+</head>
+
+<body>
+    <p>不严谨</p>
+    <script>
+        // 1
+        // // 大 O 复杂度表示法
+        // const cal = (n) => {
+        //     console.time()
+        //     let num = 0;
+        //     let i=1;
+        //     for (;i<=n;++i) {
+        //         num  += n;
+        //     }
+        //     console.timeEnd();
+        //     return num;
+        // }
+        // let n = 10;
+        // const number = cal(n);
+        // console.log(number);
+        // // 公式- 运算 
+        // const unit_time = 1;
+        // let Tn = (2*n + 2) * unit_time;
+        // console.log(Tn);
+
+        // 2
+        const cal = (n) => {
+            let num = 0,
+                i = 1,
+                j = 1;
+            for (; i <= n; ++i) {
+                j = 1;
+                for (; j <= n; ++j) {
+                    num += i * j
+                }
+            }
+            return num;
+        }
+        let n = 10;
+        let number = cal(n);
+        console.log(number);
+        // 公式
+        let unit_time = 1;
+        let Tn = ((2*n) * (2*n) + 2*n + 3) * unit_time;
+        console.log(Tn)
+    </script>
+</body>
+
+</html>
